@@ -1,3 +1,3 @@
-function loadRepos() {
-	console.log("TODO...");
+function loadRepos () {
+	console.log('TODO...')
 }
