@@ -1,0 +1,4 @@
+- manual GET about bulgaria
+
+GET /rest/v2/name/Bulgaria HTTP/1.1
+Host: https://restcountries.eu
