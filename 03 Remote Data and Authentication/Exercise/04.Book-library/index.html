@@ -6,47 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Books</title>
     <link rel="stylesheet" href="./styles.css">
+    <script defer src="src/app.js" type="module"></script>
 </head>
 <body>
-    <button id="loadBooks">LOAD ALL BOOKS</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Harry Poter</td>
-                <td>J. K. Rowling</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Game of Thrones</td>
-                <td>George R. R. Martin</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<button id="loadBooks">LOAD ALL BOOKS</button>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
-    <form>
-        <h3>FORM</h3>
-        <label>TITLE</label>
-        <input type="text" name="title" placeholder="Title...">
-        <label>AUTHOR</label>
-        <input type="text" name="author" placeholder="Author...">
-        <button>Submit</button>
-    </form>
-    <script src="./app.js"></script>
+<form id="submitForm">
+    <h3>FORM</h3>
+    <label>TITLE</label>
+    <input type="text" name="title" placeholder="Title...">
+    <label>AUTHOR</label>
+    <input type="text" name="author" placeholder="Author...">
+    <button>Submit</button>
+</form>
+
+<form id="editForm">
+    <h3>Edit FORM</h3>
+    <label>TITLE</label>
+    <input type="text" name="title">
+    <label>AUTHOR</label>
+    <input type="text" name="author">
+    <button>Save</button>
+</form>
 </body>
 </html>
 
 <!--Feel free to change/update/modify the HTML Structure-->
+
+<!--yes, yes. added classes to buttons so we can attach only 1 event listener in JS,-->
+<!--not 520 762, moved script tag in head, added defer attribute
+added ID to submit form, added another form for the update, updated the name fields of the inputs
+added css in the file for initial displays of the forms-->
