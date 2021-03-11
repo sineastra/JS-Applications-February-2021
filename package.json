@@ -1,0 +1,23 @@
+{
+  "name": "js-applications",
+  "version": "1.0.0",
+  "description": "Major Part of JS Applications Feb 2021 Lab and Exercises as well as Exams.",
+  "main": "index.js",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sineastra/JS-Applications-February-2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sineastra/JS-Applications-February-2021/issues"
+  },
+  "homepage": "https://github.com/Sineastra/JS-Applications-February-2021#readme"
+}

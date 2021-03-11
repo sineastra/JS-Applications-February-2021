@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biggest Catch</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Biggest Catch</h1>
+        <nav>
+            <a class="active">Home</a>
+            <div id="guest">
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <fieldset id="main">
+            <legend>Catches</legend>
+            <div id="catches">
+                <div class="catch">
+                    <label>Angler</label>
+                    <input type="text" class="angler" value="Paulo Amorim" />
+                    <hr>
+                    <label>Weight</label>
+                    <input type="number" class="weight" value="636" />
+                    <hr>
+                    <label>Species</label>
+                    <input type="text" class="species" value="Atlantic Blue Marlin" />
+                    <hr>
+                    <label>Location</label>
+                    <input type="text" class="location" value="Vitória, Brazil" />
+                    <hr>
+                    <label>Bait</label>
+                    <input type="text" class="bait" value="trolled pink" />
+                    <hr>
+                    <label>Capture Time</label>
+                    <input type="number" class="captureTime" value="80" />
+                    <hr>
+                    <button disabled class="update">Update</button>
+                    <button disabled class="delete">Delete</button>
+                </div>
+                <div class="catch">
+                    <label>Angler</label>
+                    <input type="text" class="angler" value="John Doe" />
+                    <hr>
+                    <label>Weight</label>
+                    <input type="number" class="weight" value="554" />
+                    <hr>
+                    <label>Species</label>
+                    <input type="text" class="species" value="Atlantic Blue Marlin" />
+                    <hr>
+                    <label>Location</label>
+                    <input type="text" class="location" value="Buenos Aires, Argentina" />
+                    <hr>
+                    <label>Bait</label>
+                    <input type="text" class="bait" value="trolled pink" />
+                    <hr>
+                    <label>Capture Time</label>
+                    <input type="number" class="captureTime" value="120" />
+                    <hr>
+                    <button disabled class="update">Update</button>
+                    <button disabled class="delete">Delete</button>
+                </div>
+            </div>
+        </fieldset>
+        <aside>
+            <button class="load">Load</button>
+            <fieldset id="addForm">
+                <legend>Add Catch</legend>
+                <label>Angler</label>
+                <input type="text" class="angler" />
+                <label>Weight</label>
+                <input type="number" class="weight" />
+                <label>Species</label>
+                <input type="text" class="species" />
+                <label>Location</label>
+                <input type="text" class="location" />
+                <label>Bait</label>
+                <input type="text" class="bait" />
+                <label>Capture Time</label>
+                <input type="number" class="captureTime" />
+                <button disabled class="add">Add</button>
+            </fieldset>
+        </aside>
+    </main>
+    <script src="/app.js"></script>
+</body>
+
+</html>
