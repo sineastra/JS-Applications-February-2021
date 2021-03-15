@@ -64,3 +64,44 @@ async function removeLike (id) {
 
 	return await response.json()
 }
+
+async function loginRequest (data) {
+	const response = await fetch(`http://localhost:3030/users/login`, {
+		method: 'post',
+		'Content-Type': 'application/json',
+		body: JSON.stringify(data)
+	})
+
+	if (response.ok) {
+		const user = await response.json()
+
+		sessionStorage.setItem('accessToken', user.accessToken)
+		sessionStorage.setItem('_id', user._id)
+		sessionStorage.setItem('email', user.email)
+
+		return user
+	}
+}
+
+async function logoutRequest () {
+	const response = await fetch(`http://localhost:3030/users/logout`, {
+		method: 'get',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': sessionStorage.getItem('accessToken')
+		}
+	})
+}
+
+export {
+	getMovies,
+	createMovie,
+	updateMovie,
+	deleteMovie,
+	getMovieLikesNumber,
+	getIfUserLikedMovie,
+	addLike,
+	removeLike,
+	loginRequest,
+	logoutRequest
+}
