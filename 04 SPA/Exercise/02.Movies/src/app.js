@@ -1,18 +1,20 @@
 import { createPageLayout, applyPageLayout } from '../createPageLayout.js'
 import { loginView } from '../views/loginView.js'
 import { deserializeFormData, isValidInput, clearFormFields, checkServerError } from './helper.js'
-import { loginRequest, logoutRequest, registerRequest } from './requests.js'
+import { createMovie, loginRequest, logoutRequest, registerRequest } from './requests.js'
 import { registerView } from '../views/registerView.js'
-import { homePageView } from '../views/homePageView.js'
+import { getHomePageView } from '../views/homePageView.js'
+import { addMovieView } from '../views/addMovieView.js'
 
 const mainContainer = document.getElementById(`container`)
 const displayPage = applyPageLayout.bind(undefined, mainContainer)
 
-displayPage(createPageLayout(homePageView))
+displayPage(createPageLayout(await getHomePageView()))
 
 async function loginLogic (formType, request, data, form) {
-	if (isValidInput(formType, data) && await checkServerError(() => request(data))) {
-		displayPage(createPageLayout(homePageView))
+	const response = await request(data)
+	if (isValidInput(formType, data) && checkServerError(response)) {
+		displayPage(createPageLayout(await getHomePageView()))
 		clearFormFields(form)
 	}
 }
@@ -21,24 +23,25 @@ const login = loginLogic.bind(undefined, 'login', loginRequest)
 const register = loginLogic.bind(undefined, 'register', registerRequest)
 
 document.addEventListener('click', e => {
-	const navBarBtns = {
+	const btns = {
 		login: () => {
 			displayPage(createPageLayout(loginView))
 		},
 		logout: async () => {
 			await logoutRequest()
 			sessionStorage.clear()
-			displayPage(createPageLayout(homePageView))
+			displayPage(createPageLayout(await getHomePageView()))
 		},
 		register: async () => {
 			displayPage(createPageLayout(registerView))
-		}
+		},
+		addMovieBtn: () => displayPage(createPageLayout(addMovieView))
 	}
 
 	try {
-		navBarBtns[e.target.dataset.id]()
+		btns[e.target.dataset.id]()
 	} catch (e) {
-
+		console.log(e)
 	}
 })
 
@@ -49,6 +52,12 @@ document.addEventListener('submit', e => {
 	const forms = {
 		'loginForm': () => login(data, e.target),
 		'registerForm': () => register(data, e.target),
+		'addMovieForm': async () => {
+			if (isValidInput('addMovie', data)) {
+				await createMovie(data)
+				displayPage(createPageLayout(await getHomePageView()))
+			}
+		}
 	}
 
 	forms[e.target.dataset.id]()

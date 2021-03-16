@@ -15,21 +15,32 @@ const displayMsg = (output, msg) => output ? output.innerHTML = msg : alert(msg)
 const deserializeFormData = (form) => Object.fromEntries([...new FormData(form).entries()])
 
 function isValidInput (formType, data, output) {
+	const types = {
+		register: (data) => {
+			if (data.password !== data.repeatPassword) {
+				displayMsg(output, 'Passwords do not match!')
+				return false
+			}
+			if (data.password.length >= 6) {
+				displayMsg(output, 'Password must be at least 6 symbols long!')
+				return false
+			}
+		},
+		login: (data) => {
+			if (data.email === '' || data.password === '') {
+				displayMsg(output, 'Email and Password must not be empty!')
+				return false
+			}
+		},
+		addMovie: data => {
+			if (data.title === '' || data.img === '' || data.description === '') {
+				displayMsg(output, 'All fields are required!')
+				return false
+			}
+		}
+	}
 
-	if (data.email === '' || data.password === '') {
-		displayMsg(output, 'Email and Password must not be empty!')
-		return false
-	}
-	if (formType === 'register') {
-		if (data.password !== data.repeatPassword) {
-			displayMsg(output, 'Passwords do not match!')
-			return false
-		}
-		if (data.password.length >= 6) {
-			displayMsg(output, 'Password must be at least 6 symbols long!')
-			return false
-		}
-	}
+	types[formType](data)
 
 	return true
 }
@@ -38,12 +49,13 @@ function clearFormFields (form) {
 	[...form.querySelectorAll('input, textarea')].forEach(x => x.value = '')
 }
 
-async function checkServerError (request) {
-	const response = await request()
-
-	if (!response.ok) {
+function checkServerError (response) {
+	if (! response.ok) {
 		alert(response.message)
+		return false
 	}
+
+	return true
 }
 
 export {

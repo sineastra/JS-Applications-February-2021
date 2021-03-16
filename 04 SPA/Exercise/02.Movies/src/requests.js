@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://localhost:3030'
 const moviesUrl = `${baseUrl}/data/movies`
 
 async function getMovies () {
@@ -10,11 +10,12 @@ async function getMovies () {
 async function createMovie (data) {
 	const response = await fetch(moviesUrl, {
 		method: 'post',
-		headers: { 'Content-Type': 'application/json' },
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': sessionStorage.getItem('accessToken')
+		},
 		body: JSON.stringify(data)
 	})
-
-	return await response.json()
 }
 
 async function updateMovie (data, id) {
@@ -78,9 +79,10 @@ async function login (url, data) {
 		sessionStorage.setItem('accessToken', user.accessToken)
 		sessionStorage.setItem('_id', user._id)
 		sessionStorage.setItem('email', user.email)
+
 	}
 
-	return response.json()
+	return response
 }
 
 async function logoutRequest () {
@@ -91,8 +93,6 @@ async function logoutRequest () {
 			'X-Authorization': sessionStorage.getItem('accessToken')
 		}
 	})
-
-	return response.json()
 }
 
 const loginRequest = login.bind(undefined, `http://localhost:3030/users/login`)
