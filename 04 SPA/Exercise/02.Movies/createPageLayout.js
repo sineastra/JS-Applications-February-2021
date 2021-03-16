@@ -1,5 +1,5 @@
-import { createNavBar } from './views/createNavBar.js'
-import { footer } from './views/footer.js'
+import { navBarComponent } from './components/navBarComponent.js'
+import { footerComponent } from './components/footerComponent.js'
 
 function applyPageLayout (parent, pageLayout) {
 	parent.innerHTML = ''
@@ -10,10 +10,10 @@ function applyPageLayout (parent, pageLayout) {
 
 function createPageLayout (data) {
 	const wrapper = document.createDocumentFragment()
-	wrapper.appendChild(createNavBar())
+	wrapper.appendChild(navBarComponent())
 	if (data)
 		wrapper.appendChild(data)
-	wrapper.appendChild(footer)
+	wrapper.appendChild(footerComponent)
 
 	return wrapper
 }

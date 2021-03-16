@@ -78,9 +78,9 @@ async function login (url, data) {
 		sessionStorage.setItem('accessToken', user.accessToken)
 		sessionStorage.setItem('_id', user._id)
 		sessionStorage.setItem('email', user.email)
-
-		return user
 	}
+
+	return response.json()
 }
 
 async function logoutRequest () {
@@ -91,6 +91,8 @@ async function logoutRequest () {
 			'X-Authorization': sessionStorage.getItem('accessToken')
 		}
 	})
+
+	return response.json()
 }
 
 const loginRequest = login.bind(undefined, `http://localhost:3030/users/login`)
