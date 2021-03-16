@@ -1,7 +1,7 @@
 import { eFactory } from '../src/helper.js'
 
 
-function getMovieComponent ({ img, title }) {
+function getMovieComponent ({ img, title, _id }) {
 	const innerHTML = `<img class="card-img-top"
      src=${img}
      alt="Card image cap" width="400">
@@ -10,7 +10,7 @@ function getMovieComponent ({ img, title }) {
 </div>
 <div class="card-footer">
     <a href="#/details/CUtL9j4qI0XVhn9kTUsx">
-        <button type="button" class="btn btn-info">Details</button>
+        <button type="button" data-id="movieDetailsBtn" data-movie-id=${_id} class="btn btn-info">Details</button>
     </a>
 </div>`
 

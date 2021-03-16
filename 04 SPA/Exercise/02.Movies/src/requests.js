@@ -18,10 +18,19 @@ async function createMovie (data) {
 	})
 }
 
+async function getMovieData (id) {
+	const response = await fetch(`${moviesUrl}/${id}`)
+
+	return response.json()
+}
+
 async function updateMovie (data, id) {
 	const response = await fetch(`${moviesUrl}/${id}`, {
 		method: 'put',
-		headers: { 'Content-Type': 'application/json' },
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': sessionStorage.getItem('accessToken')
+		},
 		body: JSON.stringify(data)
 	})
 
@@ -30,20 +39,24 @@ async function updateMovie (data, id) {
 
 async function deleteMovie (id) {
 	const response = await fetch(`${moviesUrl}/${id}`, {
-		method: 'delete'
+		method: 'delete',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': sessionStorage.getItem('accessToken')
+		},
 	})
 
 	return await response.json()
 }
 
 async function getMovieLikesNumber (movieId) {
-	const response = await fetch(`${baseUrl}/data/likes?where=movieId%3D%22{movieId}%22&distinct=_ownerId&count`)
+	const response = await fetch(`${baseUrl}/data/likes?where=movieId%3D%22${movieId}%22&distinct=_ownerId&count`)
 
 	return await response.json()
 }
 
 async function getIfUserLikedMovie (movieId, userId) {
-	const response = await fetch(`${baseUrl}/data/likes?where=movieId%3D%22{movieId}%22%20and%20_ownerId%3D%22{userId}%22`)
+	const response = await fetch(`${baseUrl}/data/likes?where=movieId%3D%22${movieId}%22%20and%20_ownerId%3D%22${userId}%22`)
 
 	return await response.json()
 }
@@ -51,7 +64,10 @@ async function getIfUserLikedMovie (movieId, userId) {
 async function addLike (data) {
 	const response = await fetch(`${baseUrl}/data/likes`, {
 		method: 'post',
-		headers: { 'Content-Type': 'application/json' },
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': sessionStorage.getItem('accessToken')
+		},
 		body: JSON.stringify(data)
 	})
 
@@ -61,6 +77,10 @@ async function addLike (data) {
 async function removeLike (id) {
 	const response = await fetch(`${baseUrl}/data/likes/${id}`, {
 		method: 'delete',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-Authorization': sessionStorage.getItem('accessToken')
+		}
 	})
 
 	return await response.json()
@@ -100,6 +120,7 @@ const registerRequest = login.bind(undefined, `http://localhost:3030/users/regis
 
 export {
 	getMovies,
+	getMovieData,
 	createMovie,
 	updateMovie,
 	deleteMovie,

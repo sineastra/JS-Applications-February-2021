@@ -5,7 +5,7 @@ const createLink = (text) => `<li class="nav-item">
 </li>`
 
 const navBarComponent = () => eFactory('nav', 'navbar navbar-expand-lg navbar-dark bg-dark', `<a 
-class='navbar-brand text-light' href='javascript:void(0)'>Movies</a>
+class='navbar-brand text-light' data-id="homeBtn" href='javascript:void(0)'>Movies</a>
 <ul class="navbar-nav ml-auto">
 ${getNavBarLinks().map(x => createLink(x)).join('')}
 </ul>`)

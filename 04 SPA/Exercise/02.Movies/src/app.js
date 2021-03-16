@@ -1,10 +1,19 @@
 import { createPageLayout, applyPageLayout } from '../createPageLayout.js'
 import { loginView } from '../views/loginView.js'
 import { deserializeFormData, isValidInput, clearFormFields, checkServerError } from './helper.js'
-import { createMovie, loginRequest, logoutRequest, registerRequest } from './requests.js'
+import {
+	addLike,
+	createMovie, getIfUserLikedMovie,
+	getMovieData, getMovieLikesNumber,
+	loginRequest,
+	logoutRequest,
+	registerRequest, removeLike, updateMovie, deleteMovie
+} from './requests.js'
 import { registerView } from '../views/registerView.js'
 import { getHomePageView } from '../views/homePageView.js'
 import { addMovieView } from '../views/addMovieView.js'
+import { movieDetailsView } from '../views/movieDetailsView.js'
+import { editMovieView } from '../views/editMovieView.js'
 
 const mainContainer = document.getElementById(`container`)
 const displayPage = applyPageLayout.bind(undefined, mainContainer)
@@ -24,6 +33,7 @@ const register = loginLogic.bind(undefined, 'register', registerRequest)
 
 document.addEventListener('click', e => {
 	const btns = {
+		homeBtn: async () => displayPage(createPageLayout(await getHomePageView())),
 		login: () => {
 			displayPage(createPageLayout(loginView))
 		},
@@ -35,7 +45,39 @@ document.addEventListener('click', e => {
 		register: async () => {
 			displayPage(createPageLayout(registerView))
 		},
-		addMovieBtn: () => displayPage(createPageLayout(addMovieView))
+		addMovieBtn: () => displayPage(createPageLayout(addMovieView)),
+		movieDetailsBtn: async () => {
+			const movieId = e.target.dataset['movieId']
+			const movieData = await getMovieData(movieId)
+			const likesCount = await getMovieLikesNumber(movieId)
+			sessionStorage.setItem('movieData', JSON.stringify(movieData))
+
+			displayPage(createPageLayout(movieDetailsView(movieData, likesCount)))
+		},
+		likeMovieBtn: async () => {
+			const movieId = JSON.parse(sessionStorage.getItem('movieData'))._id
+			const ownerId = sessionStorage.getItem('_id')
+			const likeArray = await getIfUserLikedMovie(movieId, ownerId)
+			const like = likeArray[0]
+
+			like
+				? await removeLike(like._id)
+				: await addLike({ movieId, ownerId })
+
+			const movieData = await getMovieData(movieId)
+			const likesCount = await getMovieLikesNumber(movieId)
+
+			displayPage(createPageLayout(movieDetailsView(movieData, likesCount)))
+		},
+		editMovieBtn: async () => {
+			displayPage(createPageLayout(editMovieView(JSON.parse(sessionStorage.getItem('movieData')))))
+		},
+		deleteMovieBtn: async () => {
+			const id = JSON.parse(sessionStorage.getItem('movieData'))._id
+			await deleteMovie(id)
+
+			displayPage(createPageLayout(await getHomePageView()))
+		}
 	}
 
 	try {
@@ -57,6 +99,12 @@ document.addEventListener('submit', e => {
 				await createMovie(data)
 				displayPage(createPageLayout(await getHomePageView()))
 			}
+		},
+		'editMovieForm': async () => {
+			const id = JSON.parse(sessionStorage.getItem('movieData'))._id
+			await updateMovie(data, id)
+
+			displayPage(createPageLayout(await getHomePageView()))
 		}
 	}
 
