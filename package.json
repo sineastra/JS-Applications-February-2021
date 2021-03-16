@@ -4,7 +4,8 @@
   "description": "Major Part of JS Applications Feb 2021 Lab and Exercises as well as Exams.",
   "main": "index.js",
   "dependencies": {
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "sloc": "^0.2.1"
   },
   "devDependencies": {},
   "scripts": {

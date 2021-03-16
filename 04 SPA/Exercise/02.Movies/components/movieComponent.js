@@ -1,4 +1,4 @@
-import { eFactory } from '../src/helper.js'
+import { eFactory, userLoggedIn } from '../src/helper.js'
 
 
 function getMovieComponent ({ img, title, _id }) {
@@ -8,11 +8,12 @@ function getMovieComponent ({ img, title, _id }) {
 <div class="card-body">
     <h4 class="card-title">${title}</h4>
 </div>
-<div class="card-footer">
-    <a href="#/details/CUtL9j4qI0XVhn9kTUsx">
-        <button type="button" data-id="movieDetailsBtn" data-movie-id=${_id} class="btn btn-info">Details</button>
-    </a>
+${userLoggedIn()
+		? `<div class="card-footer"><a href="#/details/CUtL9j4qI0XVhn9kTUsx">
+<button type="button" data-id="movieDetailsBtn" data-movie-id=${_id} class="btn btn-info">Details</button>
+</a>
 </div>`
+		: ''}`
 
 	return eFactory('div', 'card mb-4', innerHTML)
 }

@@ -58,6 +58,10 @@ function checkServerError (response) {
 	return true
 }
 
+const parseMovieData = () => JSON.parse(sessionStorage.getItem('movieData'))
+
+const userLoggedIn = () => sessionStorage.getItem('accessToken')
+
 export {
 	getNavBarLinks,
 	eFactory,
@@ -65,5 +69,7 @@ export {
 	deserializeFormData,
 	isValidInput,
 	clearFormFields,
-	checkServerError
+	checkServerError,
+	parseMovieData,
+	userLoggedIn
 }
