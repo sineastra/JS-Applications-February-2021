@@ -1,6 +1,5 @@
 import { eFactory, userLoggedIn } from '../src/helper.js'
 
-
 function getMovieComponent ({ img, title, _id }) {
 	const innerHTML = `<img class="card-img-top"
      src=${img}
