@@ -1,7 +1,8 @@
 import { createPageLayout, applyPageLayout } from '../createPageLayout.js'
 import { loginView } from '../views/loginView.js'
-import { deserializeFormData } from './helper.js'
-import { loginRequest, logoutRequest } from './requests.js'
+import { deserializeFormData, isValidInput, clearFormFields } from './helper.js'
+import { loginRequest, logoutRequest, registerRequest } from './requests.js'
+import { registerView } from '../views/registerView.js'
 
 const mainContainer = document.getElementById(`container`)
 const displayPage = applyPageLayout.bind(undefined, mainContainer)
@@ -17,6 +18,9 @@ document.addEventListener('click', e => {
 			await logoutRequest()
 			sessionStorage.clear()
 			displayPage(createPageLayout())
+		},
+		register: async () => {
+			displayPage(createPageLayout(registerView))
 		}
 	}
 
@@ -35,6 +39,14 @@ document.addEventListener('submit', e => {
 		'loginForm': async () => {
 			await loginRequest(data)
 			displayPage(createPageLayout())
+			clearFormFields(e.target)
+		},
+		'registerForm': async () => {
+			if (isValidInput(data)) {
+				await registerRequest(data)
+				displayPage(createPageLayout())
+				clearFormFields(e.target)
+			}
 		}
 	}
 	forms[e.target.dataset.id]()

@@ -65,8 +65,8 @@ async function removeLike (id) {
 	return await response.json()
 }
 
-async function loginRequest (data) {
-	const response = await fetch(`http://localhost:3030/users/login`, {
+async function login (url, data) {
+	const response = await fetch(url, {
 		method: 'post',
 		'Content-Type': 'application/json',
 		body: JSON.stringify(data)
@@ -93,6 +93,9 @@ async function logoutRequest () {
 	})
 }
 
+const loginRequest = login.bind(undefined, `http://localhost:3030/users/login`)
+const registerRequest = login.bind(undefined, `http://localhost:3030/users/register`)
+
 export {
 	getMovies,
 	createMovie,
@@ -103,5 +106,6 @@ export {
 	addLike,
 	removeLike,
 	loginRequest,
-	logoutRequest
+	registerRequest,
+	logoutRequest,
 }

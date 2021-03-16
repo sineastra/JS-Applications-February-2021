@@ -10,22 +10,31 @@ function eFactory (tag, className = '', content = '') {
 	return e
 }
 
-const displayMsg = (msg, output) => output ? output.innerHTML = msg : alert(msg)
+const displayMsg = (output, msg) => output ? output.innerHTML = msg : alert(msg)
 
 const deserializeFormData = (form) => Object.fromEntries([...new FormData(form).entries()])
 
-function validateFields (data, output) {
+function isValidInput (data, output) {
+	console.log(output)
 
 	if (data.email === '' || data.password === '') {
 		displayMsg(output, 'Email and Password must not be empty!')
 		return false
 	}
-	if (data.password !== data.rePass) {
+	if (data.password !== data.repeatPassword) {
 		displayMsg(output, 'Passwords do not match!')
+		return false
+	}
+	if (data.password.length >= 6) {
+		displayMsg(output, 'Password must be at least 6 symbols long!')
 		return false
 	}
 
 	return true
 }
 
-export { getNavBarLinks, eFactory, displayMsg, deserializeFormData, validateFields }
+function clearFormFields (form) {
+	[...form.querySelectorAll('input, textarea')].forEach(x => x.value = '')
+}
+
+export { getNavBarLinks, eFactory, displayMsg, deserializeFormData, isValidInput, clearFormFields }
