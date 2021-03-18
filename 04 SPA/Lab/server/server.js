@@ -1258,7 +1258,7 @@
     		"a9bae6d8-793e-46c4-a9db-deb9e3484909": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
     			title: "Top Gun 2",
-    			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
+    			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous tests pilot and dodging the advancement in rank that would ground him.",
     			img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
     			_createdOn: 1614935268135,
     			_id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
