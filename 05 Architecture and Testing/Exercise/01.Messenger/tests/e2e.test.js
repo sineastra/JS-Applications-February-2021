@@ -31,15 +31,21 @@ describe('tests preparation', function () {
 	describe('e2e tests', async () => {
 
 		it(`load posts on pressing refresh button`, async () => {
-			await page.click('#refresh')
-
+			await page.route(
+				'**/jsonstore/messenger*',
+				request => request.fulfill(json(mockData.messages))
+			)
 			await page.waitForSelector('#messages')
 
-			const actualMessages = await page.$eval('#messages', e => e.value.trim())
-			const expectedMessages = Object.values(mockData.messages)
-				.map(x => `${x.author}: ${x.content}`).join('\n')
+			const [response] = await Promise.all([
+				page.waitForResponse(r => r.request().url()
+					.includes('/jsonstore/messenger') && r.request().method() === 'GET'),
+				page.click('#refresh')
+			])
 
-			expect(actualMessages).to.eq(expectedMessages)
+			const responseData = await response.json()
+
+			expect(responseData).to.deep.eq(mockData.messages)
 		})
 
 		it(`testing proper form submit`, async () => {
@@ -49,14 +55,13 @@ describe('tests preparation', function () {
 				request => request.fulfill(json({ author: 'Pesho', content: 'Pesho is Peshak' }))
 			)
 
-
 			await page.fill('#author', 'Pesho')
 			await page.fill('#content', 'Pesho is Peshak')
 
 			const [response] = await Promise.all([
 				page.waitForRequest(r => r.url()
 					.includes('/jsonstore/messenger') &&
-					r.method() == 'POST'),
+					r.method() === 'POST'),
 				page.click('#submit')
 			])
 			const responseData = JSON.parse(await response.postData())
