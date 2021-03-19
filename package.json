@@ -4,11 +4,13 @@
   "description": "Major Part of JS Applications Feb 2021 Lab and Exercises as well as Exams.",
   "main": "index.js",
   "dependencies": {
+    "http-server": "^0.12.3",
     "lite-server": "^2.6.1",
     "sloc": "^0.2.1"
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "lit-html": "^1.3.0",
     "mocha": "^8.3.2",
     "playwright-chromium": "^1.9.2"
   },
