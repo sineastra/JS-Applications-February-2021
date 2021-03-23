@@ -1,4 +1,5 @@
 import page from '//unpkg.com/page/page.mjs'
+import { render } from 'https://unpkg.com/lit-html?module'
 import { PageLayout } from '../Components/PageLayout.js'
 import { Create } from '../Views/Create.js'
 import { Dashboard } from '../Views/Dashboard.js'
@@ -6,32 +7,29 @@ import { Catalog } from '../Views/Catalog.js'
 import { Details } from '../Views/Details.js'
 import { Edit } from '../Views/Edit.js'
 import { Login } from '../Views/Login.js'
-import { MyFurniture } from '../Views/MyFurniture.js'
 import { Register } from '../Views/Register.js'
-import { user } from '../requests/requests.js'
+import { context } from './contextAPI.js'
 
-const renderView = (view) => PageLayout(document.querySelector('body'), view)
+const renderView = (view) => render(PageLayout(view), document.querySelector('body'))
 
 page.redirect('/', '/dashboard')
-page('/dashboard', () => renderView(Dashboard()))
+page(
+	'/dashboard',
+	context.storeAllFurniture,
+	(context) => renderView(Dashboard(context.allFurniture))
+)
 page('/catalog', () => renderView(Catalog()))
 page('/create', () => renderView(Create()))
-page('/details', () => renderView(Details()))
+page(
+	'/details/:id',
+	context.storeFurnitureItem,
+	(context) => renderView(Details(context.currentItem))
+)
+page('/edit/:id', context.storeFurnitureItem, (context) => renderView(Edit(context.currentItem)))
 page('/Edit', () => renderView(Edit()))
 page('/Login', () => renderView(Login()))
-page('/my-furniture', () => renderView(MyFurniture()))
+page('/my-furniture', context.storeMyFurniture,
+	(context) => renderView(Dashboard(context.myFurniture))
+)
 page('/register', () => renderView(Register()))
 page()
-
-document.addEventListener('click', async e => {
-	if (e.target.tagName === 'A' && e.target.id === 'logoutLink') {
-		try {
-			await user.logout()
-		} catch (e) {
-			console.log(e)
-		}
-
-		sessionStorage.clear()
-		page.redirect('/dashboard')
-	}
-})

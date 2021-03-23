@@ -1,7 +1,7 @@
 import { html } from 'https://unpkg.com/lit-html?module'
 
-const Dashboard = () => {
-	document.title = 'Dashboard'
+const Catalog = () => {
+	document.title = 'Catalog'
 
 	return html`
         <div class="container">
@@ -15,13 +15,13 @@ const Dashboard = () => {
                 <div class="col-md-4">
                     <div class="card text-white bg-primary">
                         <div class="card-body">
-                            <img src="/images/table.png"/>
+                            <img src="../images/table.png"/>
                             <p>Description here</p>
                             <footer>
                                 <p>Price: <span>235 $</span></p>
                             </footer>
                             <div>
-                                <a href=”#” class="btn btn-info">Details</a>
+                                <a href="#" class="btn btn-info">Details</a>
                             </div>
                         </div>
                     </div>
@@ -29,13 +29,13 @@ const Dashboard = () => {
                 <div class="col-md-4">
                     <div class="card text-white bg-primary">
                         <div class="card-body">
-                            <img src="/images/sofa.jpg"/>
+                            <img src="../images/sofa.jpg"/>
                             <p>Description here</p>
                             <footer>
                                 <p>Price: <span>1200 $</span></p>
                             </footer>
                             <div>
-                                <a href=”#” class="btn btn-info">Details</a>
+                                <a href="#" class="btn btn-info">Details</a>
                             </div>
                         </div>
                     </div>
@@ -43,13 +43,13 @@ const Dashboard = () => {
                 <div class="col-md-4">
                     <div class="card text-white bg-primary">
                         <div class="card-body">
-                            <img src="/images/chair.jpg"/>
+                            <img src="../images/chair.jpg"/>
                             <p>Description here</p>
                             <footer>
                                 <p>Price: <span>55 $</span></p>
                             </footer>
                             <div>
-                                <a href=”#” class="btn btn-info">Details</a>
+                                <a href="#" class="btn btn-info">Details</a>
                             </div>
                         </div>
                     </div>
@@ -58,4 +58,4 @@ const Dashboard = () => {
         </div>`
 }
 
-export { Dashboard }
+export { Catalog }

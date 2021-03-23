@@ -1,18 +1,18 @@
 import { html } from 'https://unpkg.com/lit-html?module'
-import { login } from '../src/userFunctionality.js'
+import { register } from '../controllers/userFormsController.js'
 
-const Login = () => {
-	document.title = 'Login'
+const Register = () => {
+	document.title = 'Register'
 
 	return html`
         <div class="container">
             <div class="row space-top">
                 <div class="col-md-12">
-                    <h1>Login User</h1>
+                    <h1>Register New User</h1>
                     <p>Please fill all fields.</p>
                 </div>
             </div>
-            <form @submit=${login}>
+            <form @submit=${register}>
                 <div class="row space-top">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -24,11 +24,15 @@ const Login = () => {
                             <input class="form-control" id="password" type="password"
                                    name="password">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Login"/>
+                        <div class="form-group">
+                            <label class="form-control-label" for="rePass">Repeat</label>
+                            <input class="form-control" id="rePass" type="password" name="rePass">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Register"/>
                     </div>
                 </div>
             </form>
         </div>`
 }
 
-export { Login }
+export { Register }

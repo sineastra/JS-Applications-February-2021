@@ -1,5 +1,6 @@
 import { user } from '../requests/requests.js'
 import page from '//unpkg.com/page/page.mjs'
+import { createFormObject } from '../src/helper.js'
 
 const isValidInputData = (formObj) => {
 	if (formObj.email === '' || formObj.password === '')
@@ -29,14 +30,13 @@ const errors = (statusCode) => {
 
 const genericLogin = async (type, e) => {
 	e.preventDefault()
-	const formData = new FormData(e.target)
-	const formObj = Object.fromEntries([...formData.entries()])
+	const formObject = createFormObject(e.target)
 
-	if (isValidInputData(formObj)) {
+	if (isValidInputData(formObject)) {
 		try {
 			const response = await user[type]({
-				email: formObj.email,
-				password: formObj.password
+				email: formObject.email,
+				password: formObject.password
 			})
 
 			saveUserInStorage(response)

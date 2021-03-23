@@ -7,12 +7,12 @@ const user = {
 }
 
 const furniture = {
-	create: () => fetches.post('data/catalog', body),
+	create: (body) => fetches.post('data/catalog', body),
 	getAll: () => fetches.get('data/catalog'),
-	details: (id) => fetches.get(`data/catalog/${id}`, body),
-	update: (id) => fetches.put(`data/catalog${id}`, body),
+	details: (id) => fetches.get(`data/catalog/${id}`),
+	update: (body, id) => fetches.put(`data/catalog/${id}`, body),
 	delete: (id) => fetches.delete(`data/catalog/${id}`),
-	my: (id) => fetches.get(`data/catalog/data/catalog?where=_ownerId%3D%22${id}%22`),
+	my: (id) => fetches.get(`data/catalog?where=_ownerId%3D%22${id}%22`),
 }
 
 export { user, furniture }
