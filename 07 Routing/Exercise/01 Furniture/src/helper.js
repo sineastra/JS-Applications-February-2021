@@ -1,4 +1,5 @@
 const isUserLogged = () => sessionStorage.getItem('accessToken') ? true : false
+
 const createFormObject = (form) => {
 	const formData = new FormData(form)
 
