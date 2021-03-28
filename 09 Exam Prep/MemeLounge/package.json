@@ -14,9 +14,9 @@
         "page": "^1.11.6"
     },
     "devDependencies": {
+        "chai": "^4.3.4",
         "http-server": "^0.12.3",
-        "playwright-chromium": "^1.9.2",
         "mocha": "^8.3.2",
-        "chai": "^4.3.4"
+        "playwright-chromium": "^1.9.2"
     }
 }
