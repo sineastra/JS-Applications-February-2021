@@ -1,0 +1,16 @@
+{
+  "name": "TeamManager",
+  "version": "1.0.0",
+  "description": "<h2>Prerequisites: </h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lit-html": "^1.3.0",
+    "page": "^1.11.6"
+  }
+}
