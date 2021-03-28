@@ -17,7 +17,7 @@
 
 1. __run 'npm install'__
    (*if you just want to use the app, add '--production' after npm install*)
-   __while at the root(MemeLounge) folder in terminal for lit-html and Page JS install__
+   __while at the root(MemeLounge) folder in terminal__
 2. __install http-server if needed__
 3. __run 'node server.js' while at the server (server) folder in the terminal to run the Node JS server__
 4. __run 'npm start' while in root(MemeLounge) folder in terminal__
