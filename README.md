@@ -27,25 +27,12 @@ _В курса "JS Applications" ще научите какво сa HTTP зая�
 
 - <hr/>
 
-- <h4><i>Completed</i></h4>
+- <h4><i>List of SPA Apps</i></h4> 
+<h6>_every app has separate package.json and Readme.md_</h6>
 
-- [x] [01. Rest Services and AJAX]()
-- [x] [02. Arrays & Nested Arrays](02%20Arrays%20and%20Nested%20Arrays)
-- [x] [03. Objects & Composition](03%20Objects%20and%20Composition)
-- [x] [04. DOM Introduction](04%20DOM%20Introduction)
-- [x] [05. DOM Events](05%20DOM%20Events)
-- [x] [06. Advanced Functions](06%20Advanced%20Functions)
-- [x] [07. Unit Testing & Error Handling](07%20Unit%20Testing%20&%20Error%20Handling)
-
-- <h4><i>TODO...</i></h4>
-
-- [ ] 08. Classes
-- [ ] 09. Prototype & Inheritance
-- [ ] 10. Workshop
-
-- <h3><i>Completed Exams</i></h3>
-- [x] [01. Exam Prep 1 - 12.02.2021](10%20Exams/01%20JS%20Advanced%20-%20Exam%20Prep%201%20-%2012.02.2021)
-- [x] [02. Retake - 08. April.2021](10%20Exams/02%20JS%20Advanced%20Retake%20-%2008%20April%202020)
+- [x] [01. Furniture](07%20Routing/Furniture)
+- [x] [02. Team Manager](08%20Modular%20Applications/TeamManager)
+- [x] [03. Meme Lounge](09%20Exam%20Prep/MemeLounge)
 
 
 [![GitHub stars](https://img.shields.io/github/stars/Sineastra/JS-Advanced-January-2021.svg?style=social&label=Star&maxAge=2592000)](https://github.com/Sineastra/JS-Advanced-January-2021/stargazers)
