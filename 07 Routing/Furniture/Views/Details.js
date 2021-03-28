@@ -2,8 +2,7 @@ import { html, nothing } from 'https://unpkg.com/lit-html?module'
 import { furniture } from '../requests/requests.js'
 import page from '//unpkg.com/page/page.mjs'
 
-const deleteFurniture = async () => {
-	const id = window.location
+const deleteFurniture = async (id) => {
 	await furniture.delete(id)
 
 	page.redirect('/dashboard')
@@ -11,7 +10,7 @@ const deleteFurniture = async () => {
 
 const Details = ({ _id, make, model, year, description, price, material, img, isOwn }) => {
 	document.title = 'Details'
-	const imgSrc = img.slice(0,4) === 'http' ? img : `/${img}`
+	const imgSrc = img.slice(0, 4) === 'http' ? img : `/${img}`
 
 	return html`
         <div class="container">
@@ -38,7 +37,7 @@ const Details = ({ _id, make, model, year, description, price, material, img, is
                     ${isOwn ? html`
                         <div>
                             <a href="/edit/${_id}" class="btn btn-info">Edit</a>
-                            <a href="javascript:void(0)" @click=${deleteFurniture}
+                            <a href="javascript:void(0)" @click=${() => deleteFurniture(_id)}
                                class="btn btn-red">Delete</a>
                         </div>` : nothing}
                 </div>
