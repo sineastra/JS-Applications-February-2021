@@ -28,7 +28,7 @@ _В курса "JS Applications" ще научите какво сa HTTP зая�
 - <hr/>
 
 - <h4><i>List of SPA Apps</i></h4> 
-<h6>_every app has separate package.json and Readme.md_</h6>
+<h6><i>every app has separate package.json and Readme.md</i></h6>
 
 - [x] [01. Furniture](07%20Routing/Furniture)
 - [x] [02. Team Manager](08%20Modular%20Applications/TeamManager)
