@@ -9,7 +9,7 @@
 
 <p align="center">
     <a href="https://softuni.bg/trainings/3218/js-applications-february-2021">
-        <img src="applications_javascript.jpg"/>
+        <img src="applications_javascript.png"/>
     </a>
 </p>
 
