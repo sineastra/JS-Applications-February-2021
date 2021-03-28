@@ -23,7 +23,7 @@ _В курса "JS Applications" ще научите какво сa HTTP зая�
 <h4 align="center">Course Specifics</h4>
 
 1. _Skeleton (HTML & CSS) for every task are provided by SoftUni._ 
-2. _There is a local Node JS REST service included in every lesson/project. It is updated as the course progresses, so there is one in every lesson/project, updated to that particular date. Documentation can be found here: <a href="https://github.com/softuni-practice-server/softuni-practice-server">Thanks to viktorpts</a>_
+2. _There is a local Node JS REST service included in every lesson/project. It is updated as the course progresses, so there is one in every lesson/project, updated to that particular date. Documentation can be found <a href="https://github.com/softuni-practice-server/softuni-practice-server">here</a>: Thanks to <a href="https://github.com/viktorpts">viktorpts</a>_
 
 - <hr/>
 
