@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e2e77a6-1243-4fb4-b007-914f2ccfd18b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02. Asynchronous Programming and Promises/Exercise/remote-mouse-plus-wind-setup.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/08 Modular Applications/TeamManager/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/08 Modular Applications/TeamManager/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/05 Architecture and Testing/Exercise/03.SoftTerest" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -193,6 +191,7 @@
       <workItem from="1616946175392" duration="3693000" />
       <workItem from="1616950134941" duration="2867000" />
       <workItem from="1616954707862" duration="84000" />
+      <workItem from="1616954804895" duration="762000" />
     </task>
     <servers />
   </component>
