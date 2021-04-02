@@ -5,7 +5,7 @@ import { Footer } from './Footer.js'
 const PageLayout = (...children) => html`
     ${Header()}
     <main>
-        ${children.map(x => x)}
+        ${children}
     </main>
     ${Footer()}`
 

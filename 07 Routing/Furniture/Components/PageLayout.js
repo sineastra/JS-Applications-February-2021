@@ -3,6 +3,6 @@ import { Header } from './Header.js'
 
 const PageLayout = (...children) => html`
     ${Header()}
-    ${children.map(x => x)}`
+    ${children}`
 
 export { PageLayout }
