@@ -34,6 +34,7 @@ _В курса "JS Applications" ще научите какво сa HTTP зая�
 - [x] [02. Furniture](07%20Routing/Furniture)
 - [x] [03. Team Manager](08%20Modular%20Applications/TeamManager)
 - [x] [04. Meme Lounge](09%20Exam%20Prep/MemeLounge)
+- [x] [05. Car Tube](10%20Exam%20Prep%202/CarTube)
 
 
 [![GitHub stars](https://img.shields.io/github/stars/Sineastra/JS-Applications-February-2021.svg?style=social&label=Star&maxAge=2592000)](https://github.com/Sineastra/JS-Advanced-January-2021/stargazers)
