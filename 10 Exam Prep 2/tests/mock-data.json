@@ -1,0 +1,48 @@
+{
+    "users": [
+        {
+            "_id": "0001",
+            "username": "Peter",
+            "password": "123456",
+            "accessToken": "AAAA"
+        },
+        {
+            "_id": "0002",
+            "username": "John",
+            "password": "123456",
+            "accessToken": "BBBB"
+        }
+    ],
+    "catalog": [
+        {
+            "_id": "1001",
+            "_ownerId": "0001",
+            "brand": "brand1",
+            "model": "model1",
+            "description": "description1",
+            "year": 2011,
+            "imageUrl": "/images/1.png",
+            "price": 1000
+        },
+        {
+            "_id": "1002",
+            "_ownerId": "0001",
+            "brand": "brand2",
+            "model": "model2",
+            "description": "description2",
+            "year": 2012,
+            "imageUrl": "/images/2.png",
+            "price": 2000
+        },
+        {
+            "_id": "1003",
+            "_ownerId": "0002",
+            "brand": "brand3",
+            "model": "model3",
+            "description": "description3",
+            "year": 2013,
+            "imageUrl": "/images/3.png",
+            "price": 3000
+        }
+    ]
+}

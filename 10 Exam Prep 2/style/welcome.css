@@ -1,0 +1,45 @@
+#main {
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 50px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+}
+
+#welcome-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.hero {
+    margin: 40px;
+    max-width: 240px;
+}
+
+#button-div {
+    padding-top: 10px;
+    width: 37%;
+    margin: auto;
+    display: flex;
+}
