@@ -1,9 +1,11 @@
 /node_modules/
-/TODO for the exam.txt
 /test.js
-/test2.js
-/exam/
+    /exam/
 /08 Modular Applications/Exercise/node_modules/
 /08 Modular Applications/Team Manager/node_modules/
 /09 Exam Prep/MemeLounge/node_modules/
 /05 Architecture and Testing/Exercise/03.SoftTerest/node_modules/
+/10 Exam Prep 2/node_modules/
+/10 Exam Prep 2/.idea/
+/10 Exam Prep 2/CarTube/.idea/
+/10 Exam Prep 2/CarTube/node_modules/
